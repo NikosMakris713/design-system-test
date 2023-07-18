@@ -1,0 +1,76 @@
+fieldset {
+	border: none;
+}
+
+:is(input, textarea) {
+	padding: 0.6rem 1.2rem;
+}
+
+:is(input, textarea) {
+	border-radius: var(--border-radius);
+	background-color: var(--color-background-secondary);
+	border: 2px solid var(--color-separator-secondary);
+}
+
+:is(input, textarea):focus {
+	outline-style: none;
+	border-color: var(--color-foreground-highlight);
+}
+
+textarea {
+	resize: none;
+}
+
+.input-control {
+	row-gap: 1.2rem;
+}
+
+.input-control.invalid {
+	:is(input, textarea) {
+		border-color: var(--color-state-bad);
+	}
+	p {
+		color: var(--color-state-bad);
+	}
+	svg {
+		fill: var(--color-state-bad);
+	}
+}
+
+.input-control.valid {
+	:is(input, textarea):focus {
+		border-color: var(--color-state-good);
+	}
+	p {
+		color: var(--color-state-good);
+	}
+	svg {
+		fill: var(--color-state-good);
+	}
+}
+
+.input-control-validation {
+	grid-template-columns: max-content 1fr;
+	column-gap: 0.8rem;
+
+	svg {
+		inline-size: calc(var(--icon-size-small) * 1.5);
+		block-size: calc(var(--icon-size-small) * 1.5);
+		fill: var(--color-foreground-secondary);
+	}
+
+	p {
+		color: var(--color-foreground-secondary);
+	}
+}
+
+#submit-status {
+	padding: 0.4rem 1.2rem;
+	border-radius: var(--border-radius);
+}
+
+#close-modal:hover {
+	svg {
+		fill: var(--color-state-bad);
+	}
+}

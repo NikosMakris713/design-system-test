@@ -1,0 +1,27 @@
+.default-button {
+	color: var(--color-foreground-highlight);
+	background-color: var(--color-background-secondary);
+	border: 2px solid var(--color-separator-secondary);
+	border-radius: var(--border-radius);
+	transition: all ease-in-out 0.2s;
+	padding: var(--element-padding-asymmetrical);
+
+	&:has(svg) {
+		grid-template-columns: max-content max-content;
+	}
+
+	&:is(:hover, :focus, :focus-visible) {
+		box-shadow: 0 0 0 0.6rem var(--color-background-tertiary);
+	}
+
+	svg {
+		fill: currentColor;
+		block-size: var(--icon-size-medium);
+		inline-size: var(--icon-size-medium);
+	}
+
+	&.active {
+		background-color: var(--color-foreground-highlight);
+		color: var(--color-foreground-primary);
+	}
+}

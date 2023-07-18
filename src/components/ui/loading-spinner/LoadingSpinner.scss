@@ -1,0 +1,41 @@
+$spinner-duration: 1.2s;
+$spinner-delay-step: -0.1s;
+$spinner-rotation-step: 30deg;
+.loading-spinner {
+	display: inline-block;
+	position: fixed;
+	top: 50vh;
+	inline-size: 8rem;
+	height: 8rem;
+}
+.loading-spinner div {
+	transform-origin: 4rem 4rem;
+	animation: loading-spinner-animation $spinner-duration linear infinite;
+}
+.loading-spinner div:after {
+	content: ' ';
+	display: block;
+	position: absolute;
+	top: 0.3rem;
+	left: 3.7rem;
+	inline-size: 0.6rem;
+	height: 1.8rem;
+	border-radius: 20%;
+	background-color: var(--color-foreground-primary);
+}
+
+@for $i from 1 through 12 {
+	.loading-spinner div:nth-child(#{$i}) {
+		transform: rotate($spinner-rotation-step * ($i - 1));
+		animation-delay: $spinner-delay-step * ($i - 1);
+	}
+}
+
+@keyframes loading-spinner-animation {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}

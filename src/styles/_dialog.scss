@@ -1,0 +1,94 @@
+[color-scheme='dark'] {
+	dialog {
+		--color-background-primary: var(--color-background-secondary-dark);
+		--color-background-secondary: var(--color-background-tertiary-dark);
+		--color-background-tertiary: var(--color-background-quaternary-dark);
+	}
+}
+
+#overlay {
+	height: 0;
+}
+
+body:has(dialog[open]) {
+	height: 100vh;
+	overflow-y: hidden;
+}
+
+dialog {
+	display: grid;
+	grid-template-columns: 1fr;
+	position: fixed;
+	border: 2px solid var(--color-separator-primary);
+	border-radius: var(--border-radius);
+	padding: var(--spacing-1x) var(--spacing-1x);
+	background-color: var(--color-background-primary);
+	transition: opacity 0.2s ease-in-out;
+	max-inline-size: var(--container-large);
+	inline-size: calc(100% - (var(--spacing-1x) * 2));
+	margin: auto;
+	inset: 0;
+
+	&:not([open]) {
+		opacity: 0;
+		pointer-events: none;
+		z-index: -1;
+	}
+
+	&[open] {
+		opacity: 1;
+	}
+
+	&::backdrop {
+		inline-size: 100%;
+		background: rgba(0, 0, 0, 0.7);
+		backdrop-filter: blur(2px);
+	}
+}
+
+@keyframes slide-in {
+	0% {
+		transform: translateY(-1000px);
+	}
+	100% {
+		transform: translateY(var(--spacing-2x));
+	}
+}
+
+#notification-modal {
+	margin: 0 auto;
+
+	&[open] {
+		animation: slide-in 0.4s both;
+	}
+
+	.notification-actions {
+		grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+		gap: var(--spacing-1x);
+
+		button {
+			inline-size: 100%;
+		}
+	}
+
+	svg {
+		inline-size: 8rem;
+		justify-self: center;
+	}
+
+	&.good {
+		svg {
+			fill: var(--color-state-good);
+		}
+	}
+
+	&.bad {
+		svg {
+			fill: var(--color-state-bad);
+		}
+	}
+}
+
+#notification-modal.bad {
+	background-color: var(--color-state-bad);
+}

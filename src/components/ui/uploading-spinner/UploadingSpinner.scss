@@ -1,0 +1,21 @@
+.button-loading {
+	margin-inline-start: 0.6rem;
+	display: inline-block;
+	inline-size: 1.6rem;
+	height: 1.6rem;
+	border: 4px solid transparent;
+	border-color: var(--color-foreground-primary) var(--color-foreground-primary)
+		var(--color-foreground-primary) transparent;
+	border-radius: 50%;
+	animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+	from {
+		transform: rotate(0turn);
+	}
+
+	to {
+		transform: rotate(1turn);
+	}
+}

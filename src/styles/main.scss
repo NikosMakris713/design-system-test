@@ -1,0 +1,32 @@
+@import './variables';
+@import './color-themes';
+@import './reduced-motion';
+@import './print.scss';
+@import './reset.scss';
+@import './form-styles';
+@import './dialog';
+
+.container-large {
+	max-inline-size: var(--container-large);
+}
+
+button.full-width {
+	max-inline-size: 100%;
+	inline-size: 100%;
+}
+
+.card {
+	max-inline-size: var(--container-large);
+	padding: var(--spacing-1x);
+	border: 1px solid var(--color-separator-primary);
+	border-radius: var(--border-radius);
+}
+
+#add-new-movie > fieldset > div:nth-child(1) {
+	grid-template-columns: 1fr auto;
+}
+
+#add-new-movie > fieldset > div:nth-child(1) > svg {
+	inline-size: calc(clamp(2.2rem, 1.8rem + 0.71vw, 2.4rem) * 1.5);
+	height: calc(clamp(2.2rem, 1.8rem + 0.71vw, 2.4rem) * 1.5);
+}

@@ -1,0 +1,103 @@
+/* Set styles and transitions for color scheme switcher svg */
+
+.sun-and-moon {
+	& > :is(.moon, .sun, .sun-beams) {
+		transform-origin: center center;
+	}
+
+	& > :is(.moon, .sun) {
+		fill: var(--color-foreground-primary-dark);
+	}
+
+	& > .sun {
+		transition: transform 0.5s ease-in-out;
+	}
+
+	& > .sun-beams {
+		stroke: var(--color-foreground-primary-dark);
+		stroke-width: 2px;
+		transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+		transition-delay: 0.25s;
+	}
+
+	& > .moon > circle {
+		transition-duration: 0.25s;
+	}
+}
+
+/* End set styles and transitions for color scheme switcher svg */
+
+/* Set dark color scheme styles */
+[color-scheme='dark'] {
+	color-scheme: dark;
+
+	/* Set animations for color scheme switcher svg */
+	.sun-and-moon {
+		& > .sun {
+			transform: scale(1.75);
+			transition-timing-function: ease-in-out;
+			transition-duration: 0.25s;
+		}
+
+		& > .sun-beams {
+			opacity: 0;
+			transform: rotateZ(-25deg);
+			transition: transform 0.5s ease-in-out;
+		}
+		& > .moon > circle {
+			transform: translateX(-7px);
+			transition-delay: 0.25s;
+			transition-duration: 0.5s;
+
+			@supports (cx: 1) {
+				transform: translateX(0);
+				cx: 17;
+			}
+		}
+		/* End set animations for color scheme switcher svg */
+	}
+
+	/* Set color variable values for dark color scheme */
+	--header-color: var(--header-color-dark);
+	--color-foreground-primary: var(--color-foreground-primary-dark);
+	--color-foreground-secondary: var(--color-foreground-secondary-dark);
+	--color-background-primary: var(--color-background-primary-dark);
+	--color-background-secondary: var(--color-background-secondary-dark);
+	--color-background-tertiary: var(--color-background-tertiary-dark);
+	--color-background-quaternary: var(--color-background-quaternary-dark);
+	--color-separator-primary: var(--color-separator-primary-dark);
+	--color-separator-secondary: var(--color-separator-secondary-dark);
+	--color-accent: var(--color-accent-dark);
+	--color-state-lighting: var(--color-state-lighting-dark);
+	--color-foreground-highlight: var(--color-foreground-highlight-dark);
+	--color-state-info: var(--color-state-info-dark);
+	--color-state-good: var(--color-state-good-dark);
+	--color-state-warn: var(--color-state-warn-dark);
+	--color-state-bad: var(--color-state-bad-dark);
+	/* End set color variable values for dark color scheme */
+}
+/* End set dark color scheme when user chooses so from the Web Application*/
+
+/* Set light color scheme styles */
+[color-scheme='light'] {
+	color-scheme: light;
+
+	/* Set color variable values for light color scheme */
+	--color-foreground-primary: var(--color-foreground-primary-light);
+	--color-foreground-secondary: var(--color-foreground-secondary-light);
+	--color-background-primary: var(--color-background-primary-light);
+	--color-background-secondary: var(--color-background-secondary-light);
+	--color-state-hover-background-highlight: var(--color-state-hover-background-highlight-light);
+	--color-foreground-anchor: var(--color-foreground-anchor-light);
+	--color-state-hover-foreground: var(--color-state-hover-foreground-light);
+	--color-state-info-background: var(--color-state-info-background-light);
+	--color-state-info-foreground: var(--color-state-info-foreground-light);
+	--color-state-good-foreground: var(--color-state-good-foreground-light);
+	--color-state-good-background: var(--color-state-good-background-light);
+	--color-state-warn-foregound: var(--color-state-warn-foreground-light);
+	--color-state-warn-background: var(----color-state-warn-background-light);
+	--color-state-bad-foreground: var(--color-state-bad-foreground-light);
+	--color-state-bad-background: var(--color-state-bad-background-light);
+	/* Set color variable values for dark color scheme */
+}
+/* End set light color scheme when user chooses so from the Web Application*/

@@ -1,0 +1,23 @@
+.select-wrapper {
+	border: 2px solid var(--color-separator-secondary);
+	border-radius: var(--border-radius);
+
+	&:has(select:is(hover, focus, :focus-visible)) {
+		border-color: var(--color-foreground-highlight);
+		background-color: var(--color-background-tertiary);
+	}
+}
+
+select {
+	font-weight: 700;
+	background-color: var(--color-background-secondary);
+	color: var(--color-foreground-primary);
+	border: none;
+	border-right: 1.6rem solid transparent;
+	padding: 1.8rem 0 1.8rem 1.6rem;
+	border-radius: var(--border-radius);
+
+	&:focus-visible {
+		outline: none;
+	}
+}

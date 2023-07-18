@@ -1,0 +1,256 @@
+/* Set font size to 62.5% so 1rem equals to 10px which makes rem values easier to use. Also set scroll-behavior to smooth */
+html {
+	font-size: 62.5%;
+	&:focus-within {
+		scroll-behavior: smooth;
+	}
+}
+/* End set font size to 62.5% so 1rem equals to 10px which makes rem values easier to use. Also set scroll-behavior to smooth */
+
+/* Set selection style */
+::selection {
+	color: var(--color-background-primary);
+	background: var(--color-foreground-primary);
+}
+/* End set selection style */
+
+/* Set default styles for all elements */
+:is(*, *::before, *::after) {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+/* End set default styles for all elements */
+
+/* Set global padding */
+:is(#root header:nth-of-type(1), #root header:nth-of-type(2), main, footer) {
+	padding: var(--spacing-6) var(--spacing-3);
+}
+/* End set global padding */
+
+/* Set styles for body */
+body {
+	font-family: var(--font-family-primary);
+	font-size: clamp(1.6rem, 1.536rem + 0.18vw, 1.8rem);
+	font-weight: 500;
+	color: var(--color-foreground-primary);
+	background-color: var(--color-background-primary);
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+	overflow-wrap: break-word;
+	hyphens: auto;
+	text-align: start;
+	font-synthesis: none;
+}
+/* End set style for body */
+
+/* Set style for react root element */
+#root {
+	display: grid;
+	grid-template-rows: max-content max-content max-content 1fr;
+	min-height: 100vh;
+	margin: 0 auto;
+	row-gap: 0;
+	padding: 0;
+}
+/* End set style for react root element */
+
+/* Set sectioning elements (except section) to display grid, horizontally align them centrally and set their inline size to 100% */
+:is(body, main, div, header, nav, aside, article, menu, form, fieldset, footer, ol, ul) {
+	display: grid;
+	inline-size: 100%;
+	justify-self: center;
+}
+/* End set sectioning elements (except section) to display grid, vertically align them centrally and set their inline size to 100% */
+
+/* Set footer's margin-block-start to auto so it stays to the bottom of the page if there is not enough content in a page */
+footer {
+	margin-block-start: auto;
+}
+/* Set footer's margin-block-start to auto so it stays to the bottom of the page if there is not enough content in a page */
+
+/* Set row-gaps for sectioning elements */
+main {
+	row-gap: var(--grid-gap-2);
+	margin: var(--grid-gap-3) 0;
+}
+
+:is(header, aside, footer, dialog, form, fieldset) {
+	row-gap: var(--grid-gap-1);
+}
+
+:is(div, section, nav, menu) {
+	row-gap: var(--grid-gap-1);
+}
+/* End set row-gaps for sectioning elements */
+
+/* End add margin on top of every heading except if it is the first child of an element */
+
+/* Set styles for global headers */
+#root header:nth-of-type(1) {
+	background-color: var(--color-background-secondary);
+}
+
+#root header:nth-of-type(2) {
+	background-color: rgba(var(--color-background-secondary), 0.7);
+	border-bottom: 1px solid var(--color-separator-primary-dark);
+	backdrop-filter: blur(20px);
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+#global-navigation,
+#page-specific-navigation {
+	max-inline-size: var(--container-large);
+	inline-size: 100%;
+	column-gap: 3.2rem;
+	align-items: center;
+	margin: 0 auto;
+	grid-template-columns: max-content auto max-content;
+}
+/* Set styles for global headers */
+
+/* Set styles for skip link */
+#skip-link {
+	position: absolute;
+	top: -40rem;
+	left: 0;
+	background: var(--color-background-primary);
+	color: var(--color-foreground-primary);
+	padding: 0.8rem;
+	z-index: 100;
+}
+
+#skip-link:focus {
+	top: 0;
+}
+/* End set styles for skip link */
+
+//Set main logo's width and height equal to h1 element's font size times it's 1.2 line height
+.main-logo {
+	height: calc(clamp(2.8rem, 2.2rem + 1.79vw, 3.2rem) * 1.2);
+}
+/* End set styles for body and main */
+
+/* Set typography styles */
+:is(h1, h2, h3, h4, h5, h6) {
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: clamp(2.8rem, 2.2rem + 1.79vw, 3.2rem);
+}
+
+h2 {
+	font-size: clamp(2.4rem, 2rem + 1.07vw, 2.8rem);
+}
+
+h3 {
+	font-size: clamp(2.2rem, 1.8rem + 0.71vw, 2.4rem);
+}
+
+:is(h4, h5, h6, th) {
+	font-size: clamp(1.8rem, 1.8rem + 0.18vw, 2rem);
+}
+
+label {
+	font-size: clamp(1.8rem, 1.8rem + 0.18vw, 2rem);
+	font-weight: 500;
+}
+
+legend {
+	font-size: clamp(2.2rem, 1.8rem + 0.71vw, 2.4rem);
+	font-weight: 600;
+}
+
+a {
+	overflow-wrap: anywhere;
+	text-decoration: underline;
+	color: var(--color-foreground-anchor);
+}
+
+a:hover {
+	cursor: pointer;
+	background-color: var(--color-state-hover-background-highlight);
+}
+
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+/* End set typography styles */
+
+:is(input, button, textarea, select) {
+	font: inherit;
+}
+
+:is(ol, ul) {
+	row-gap: var(--spacing-0x);
+	padding-inline-start: 2ch;
+}
+
+ol:not([class]) li,
+ul:not([class]) li {
+	position: relative;
+	line-height: 1.35;
+}
+
+li img,
+p img {
+	display: inline-block;
+	vertical-align: sub;
+}
+
+caption {
+	font-size: clamp(2rem, 1.8rem + 0.71vw, 2.8rem);
+	margin: var(--spacing-1x) 0;
+}
+
+figcaption {
+	padding: var(--spacing-1x);
+	background-color: var(--color-foreground-secondary);
+	color: var(--color-background-secondary);
+}
+/* End set styles for text elements */
+
+/* Make multimedia elements easier to work with */
+:is(img, picture, video, iframe, audio, map, embed, object, svg, canvas, audio) {
+	display: block;
+	height: auto;
+	max-inline-size: 100%;
+	inline-size: 100%;
+}
+
+iframe {
+	border: 0;
+}
+/* End make multimedia elements easier to work with */
+
+button {
+	display: grid;
+	justify-content: center;
+	align-items: end;
+	line-height: 1;
+	font-size: 2rem;
+	font-weight: 600;
+	column-gap: 1.2rem;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	cursor: pointer;
+
+	&:is(:hover, :focus, :focus-visible) {
+		outline: none;
+	}
+}
+
+header {
+	a {
+		text-decoration: none;
+	}
+}
+
+a.active {
+	color: var(--color-foreground-highlight);
+}

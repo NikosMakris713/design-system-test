@@ -1,0 +1,104 @@
+.table-container {
+	overflow: auto;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	inline-size: 100%;
+	min-inline-size: max-content;
+}
+
+table tr {
+	border-bottom: 2px solid var(--color-separator-primary);
+}
+
+td,
+th {
+	text-align: start;
+	padding: var(--element-padding-asymmetrical);
+	white-space: nowrap;
+
+	.sorting-buttons {
+		display: inline-grid;
+		max-inline-size: max-content;
+		margin-inline-start: 3.2rem;
+		grid-template-columns: max-content max-content;
+		gap: 1.2rem;
+
+		button {
+			// --icon-size-large: var(--icon-size-small);
+			// --element-padding-symmetrical: 0;
+			border-radius: 50%;
+			width: 4.4rem;
+			height: 4.4rem;
+			padding: 0 !important;
+		}
+	}
+}
+
+tbody tr:hover {
+	cursor: pointer;
+	background-color: var(--color-background-secondary);
+}
+
+.pagination {
+	grid-template-columns: max-content max-content max-content;
+	justify-content: space-between;
+
+	.pages-list {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		column-gap: 1.4rem;
+		a {
+			display: grid;
+			place-content: center;
+			color: var(--color-foreground-highlight);
+			font-weight: 700;
+			font-size: clamp(1.8rem, 1.8rem + 0.18vw, 2rem);
+			text-decoration: none;
+			border-radius: 50%;
+			border: 2px solid var(--color-separator-secondary);
+			background-color: var(--color-background-secondary);
+			width: 4.4rem;
+			height: 4.4rem;
+			transition: all ease-in-out 0.4s;
+		}
+
+		a.active {
+			background-color: var(--color-foreground-highlight);
+			color: var(--color-foreground-primary);
+		}
+
+		a:hover {
+			box-shadow: 0 0 0 0.4rem var(--color-background-tertiary);
+		}
+
+		a.disabled {
+			pointer-events: none;
+		}
+	}
+}
+
+.next-page,
+.page-previous {
+	display: grid;
+	grid-template-columns: max-content max-content;
+	color: var(--color-foreground-highlight);
+	font-size: clamp(1.8rem, 1.8rem + 0.18vw, 2rem);
+	font-weight: 700;
+	place-items: center;
+	text-decoration: none;
+	transition: all ease-in-out 0.4s;
+	svg {
+		fill: currentColor;
+		width: 4.4rem;
+		height: 4.4rem;
+	}
+}
+
+.next-page:hover,
+.page-previous:hover {
+	text-decoration: underline;
+}

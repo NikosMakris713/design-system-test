@@ -1,0 +1,18 @@
+.color-scheme-toggle {
+	background-color: transparent;
+	border: none;
+	& svg {
+		inline-size: var(--icon-size-large);
+		block-size: var(--icon-size-large);
+		stroke-linecap: round;
+	}
+
+	& :is(:hover, :focus, :focus-visible) {
+		:is(.moon, .sun) {
+			fill: var(--color-state-lighting);
+		}
+		.sun-beams {
+			stroke: var(--color-state-lighting);
+		}
+	}
+}

@@ -1,0 +1,39 @@
+.icon-button {
+	color: var(--color-foreground-highlight);
+	background-color: var(--color-background-secondary);
+	padding: var(--element-padding-symmetrical);
+	border: 0.2rem solid var(--color-separator-secondary);
+	border-radius: var(--border-radius);
+	max-inline-size: max-content;
+	transition: all ease-in-out var(--transition-time);
+
+	&:is(:hover, :focus, :focus-visible) {
+		// background-color: var(--color-background-tertiary);
+		box-shadow: 0 0 0 0.4rem var(--color-background-tertiary);
+		transform: scale(0.92);
+	}
+
+	svg {
+		fill: currentColor;
+		block-size: var(--icon-size-large);
+		inline-size: var(--icon-size-large);
+	}
+
+	&.active {
+		background-color: var(--color-foreground-highlight);
+		color: var(--color-foreground-primary);
+	}
+}
+
+dialog {
+	.icon-button[type='reset'] {
+		padding: 0.4rem;
+		color: var(--color-state-bad);
+		background-color: var(--color-state-bad);
+		border-radius: 50%;
+
+		&:is(:hover, :focus, :focus-visible) {
+			color: var(--color-foreground-primary);
+		}
+	}
+}
